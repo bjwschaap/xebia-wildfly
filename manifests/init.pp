@@ -5,6 +5,7 @@ class wildfly(
   $user                     = $wildfly::params::user,
   $shell                    = $wildfly::params::shell,
   $install_dir              = $wildfly::params::install_dir,
+  $install_java             = $wildfly::params::install_java,
   $version                  = $wildfly::params::version,
   $mode                     = $wildfly::params::mode,
   $profile                  = $wildfly::params::profile,

@@ -15,6 +15,7 @@ class wildfly::params {
   $console_log = "/var/log/wildfly/console.log"
   $pid_file = "/var/run/wildfly/wildfly.pid"
   $proxy_url = undef
+  $install_java = false
 
   case $::osfamily {
     'RedHat': {

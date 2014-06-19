@@ -1,11 +1,12 @@
 # == Class wildfly::install
 #
 class wildfly::install(
-  $version = $wildfly::version,
-  $install_dir = $wildfly::install_dir,
-  $user        = $wildfly::user,
-  $shell       = $wildfly::shell,
-  $proxy_url   = $wildfly::proxy_url,
+  $version      = $wildfly::version,
+  $install_dir  = $wildfly::install_dir,
+  $install_java = $wildfly::install_java,
+  $user         = $wildfly::user,
+  $shell        = $wildfly::shell,
+  $proxy_url    = $wildfly::proxy_url
 ) {
 
   # flow
