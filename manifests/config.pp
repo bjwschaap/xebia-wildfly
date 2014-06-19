@@ -1,13 +1,15 @@
 # == Class wildfly::config
 #
 class wildfly::config(
-  $install_dir = $wildfly::install_dir,
-  $mode        = $wildfly::mode,
-  $user        = $wildfly::user,
-  $profile     = $wildfly::profile,
-  $default_conf = $wildfly::default_conf,
-  $init_script  = $wildfly::init_script,
-  $wait_time    = $wildfly::wait_time
+  $install_dir              = $wildfly::install_dir,
+  $mode                     = $wildfly::mode,
+  $user                     = $wildfly::user,
+  $profile                  = $wildfly::profile,
+  $default_conf             = $wildfly::default_conf,
+  $init_script              = $wildfly::init_script,
+  $wait_time                = $wildfly::wait_time,
+  $bind_address             = $wildfly::bind_address,
+  $bind_address_management  = $wildfly::bind_address_management
 ) {
 
   file { "${install_dir}/wildfly/${mode}/configuration/${profile}":
