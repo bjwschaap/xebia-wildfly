@@ -32,10 +32,13 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
       set_proxy_url
 
       
-      curl( '--output', "#{download_dir}/archive#{file_type}", url(resource[:version]))
+      curl( '--output', "#{download_dir}/archive.zip", url(resource[:version]))
 
 
-      unzip("#{download_dir}/archive#{file_type}", '-d', "#{resource[:destinationdir]}")
+
+      p "#{download_dir}/archive.zip"
+      p "#{resource[:destinationdir]}"
+      unzip("#{download_dir}/archive.zip", '-d', "#{resource[:destinationdir]}")
 
       chown('-R',"#{resource[:user]}:#{resource[:group]}", "#{resource[:destinationdir]}" )
 
