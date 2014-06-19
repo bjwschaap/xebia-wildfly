@@ -41,7 +41,7 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
     rescue Exception => e
 
       rm('-rf', download_dir) unless download_dir.nil?
-      #rm('-rf', resource[:destinationdir]) if File.directory?(resource[:destinationdir])
+      rm('-rf', "#{resource[:destinationdir]}/wildfly-#{resource[:version]}") if File.directory?("#{resource[:destinationdir]}/wildfly-#{resource[:version]}")
 
       self.fail e.message
 

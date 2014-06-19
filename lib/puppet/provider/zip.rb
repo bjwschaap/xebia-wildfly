@@ -5,7 +5,7 @@ require "digest/md5"
 
 class Puppet::Provider::Zip < Puppet::Provider
   def exists?
-    File.directory?(resource[:destinationdir])
+    File.directory?("#{resource[:destinationdir]}/wildfly-#{resource[:version]}")
   end
 
 
