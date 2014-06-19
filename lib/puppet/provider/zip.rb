@@ -13,12 +13,12 @@ class Puppet::Provider::Zip < Puppet::Provider
     rm('-rf', resource[:destinationdir] )
   end
 
-  def owner
+  def user
     uid = File.stat(resource[:destinationdir]).uid
     Etc.getpwuid(uid).name
   end
 
-  def owner=(value)
+  def user=(value)
     chown('-R', "#{resource[:owner]}" , resource[:destinationdir])
   end
 
