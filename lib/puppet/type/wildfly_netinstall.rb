@@ -36,7 +36,7 @@ Puppet::Type.newtype(:wildfly_netinstall) do
     desc 'http proxy url'
   end
 
-  newproperty(:owner) do
+  newproperty(:user) do
     desc 'the owner setting of the license file'
     defaultto 'wildfly'
   end

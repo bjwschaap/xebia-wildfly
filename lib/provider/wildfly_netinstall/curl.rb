@@ -31,15 +31,13 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
 
       set_proxy_url
 
-      if resource[:user].nil? == false and resource[:password].nil? == false
-        curl('-u', "#{resource[:user]}:#{resource[:password]}", '--output', "#{download_dir}/archive#{file_type}", url(resource[:version]))
-      else
-        curl( '--output', "#{download_dir}/archive#{file_type}", url(resource[:version]))
-      end
+      
+      curl( '--output', "#{download_dir}/archive#{file_type}", url(resource[:version]))
+
 
       unzip("#{download_dir}/archive#{file_type}", '-d', "#{resource[:destinationdir]}")
 
-      chown('-R',"#{resource[:owner]}:#{resource[:group]}", "#{resource[:destinationdir]}" )
+      chown('-R',"#{resource[:user]}:#{resource[:group]}", "#{resource[:destinationdir]}" )
 
     rescue Exception => e
 
