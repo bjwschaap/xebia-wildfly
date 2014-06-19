@@ -10,6 +10,7 @@ class wildfly::config(
   $wait_time                = $wildfly::wait_time,
   $bind_address             = $wildfly::bind_address,
   $bind_address_management  = $wildfly::bind_address_management
+  $deployment_dir           = $wildfly::deloyment_dir
 ) {
 
   file { "${install_dir}/wildfly/${mode}/configuration/${profile}":

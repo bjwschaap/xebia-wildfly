@@ -17,6 +17,7 @@ class wildfly::params {
   $pid_file = "/var/run/wildfly/wildfly.pid"
   $proxy_url = undef
   $install_java = false
+  $deployment_dir = undef
 
   case $::osfamily {
     'RedHat': {

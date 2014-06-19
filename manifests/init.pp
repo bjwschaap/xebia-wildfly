@@ -12,7 +12,8 @@ class wildfly(
   $wait_time                = $wildfly::params::wait_time,
   $console_log              = $wildfly::params::console_log,
   $pid_file                 = $wildfly::params::pid_file,
-  $proxy_url                = $wildfly::params::proxy_url
+  $proxy_url                = $wildfly::params::proxy_url,
+  $deployment_dir           = $wildfly::params::deployment_dir
 ) inherits wildfly::params {
 
   anchor{'wildfly::begin': } ->
