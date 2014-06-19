@@ -18,7 +18,7 @@ class wildfly::params {
   $proxy_url = undef
   $install_java = false
   $deployment_dir = undef
-  $admin_user = 'wildfly_admin'
+  $admin_user = 'wildfly-admin'
   $admin_password = 'changeme'
 
   case $::osfamily {
