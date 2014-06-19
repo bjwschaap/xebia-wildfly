@@ -11,7 +11,7 @@ class wildfly::params {
   $install_dir = "/opt"
   $version = "8.1.0.Final"
   $mode = "standalone"
-  $profile = "standalone.xml"
+  $profile = "standalone-full.xml"
   $wait_time = "60"
   $console_log = "/var/log/wildfly/console.log"
   $pid_file = "/var/run/wildfly/wildfly.pid"
