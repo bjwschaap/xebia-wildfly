@@ -66,7 +66,7 @@ class Puppet::Provider::Zip < Puppet::Provider
   end
 
   def url(version)
-    return "http://download.jboss.org/wildfly/#{version}/wildfly-${version}.zip"
+    return "http://download.jboss.org/wildfly/#{version}/wildfly-#{version}.zip"
   end
 
 end
