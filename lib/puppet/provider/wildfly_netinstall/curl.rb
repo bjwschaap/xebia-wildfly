@@ -34,17 +34,13 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
       
       curl( '--output', "#{download_dir}/archive.zip", url(resource[:version]))
 
-
-
-      p "#{download_dir}/archive.zip"
-      p "#{resource[:destinationdir]}"
       unzip("#{download_dir}/archive.zip", '-d', "#{resource[:destinationdir]}")
 
       chown('-R',"#{resource[:user]}:#{resource[:group]}", "#{resource[:destinationdir]}" )
 
     rescue Exception => e
 
-      #rm('-rf', download_dir) unless download_dir.nil?
+      rm('-rf', download_dir) unless download_dir.nil?
       #rm('-rf', resource[:destinationdir]) if File.directory?(resource[:destinationdir])
 
       self.fail e.message
