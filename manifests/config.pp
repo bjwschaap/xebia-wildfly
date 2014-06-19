@@ -19,7 +19,7 @@ class wildfly::config(
     owner   => "${user}",
     group   => "${user}",
     mode    => 0644,
-    content => template('wildfly/${profile}.erb')
+    content => template("wildfly/${profile}.erb")
   }
 
   file { "${default_conf}":
