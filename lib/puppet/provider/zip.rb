@@ -19,7 +19,7 @@ class Puppet::Provider::Zip < Puppet::Provider
   end
 
   def user=(value)
-    chown('-R', "#{resource[:owner]}" , resource[:destinationdir])
+    chown('-R', "#{resource[:user]}" , resource[:destinationdir])
   end
 
   def group
