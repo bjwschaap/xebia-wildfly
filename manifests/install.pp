@@ -40,7 +40,6 @@ class wildfly::install(
     owner   => "${user}",
     group   => "${user}",
     target  => "${install_dir}/wildfly-${version}",
-    require => Exec['untar-wildfly']
   }
 
   user { "${user}":
