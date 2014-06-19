@@ -8,6 +8,26 @@ class wildfly::install(
   $proxy_url   = $wildfly::proxy_url,
 ) {
 
+  # flow
+  User[$user] ->
+  Wildfly_netinstall[$version] ->
+  File["${install_dir}/wildfly"]
+
+  # java?
+  if str2bool($install_java) {
+    case $::osfamily {
+      'RedHat' : {
+                    $java_packages = ['java-1.7.0-openjdk']
+                    User[$user] -> Package[$java_packages] -> Wildfly_netinstall[$version]
+
+                    package { $java_packages: ensure => present }
+                  }
+      default  : {
+                    fail("${::osfamily}:${::operatingsystem} not supported by this module")
+                  }
+            }
+    }
+
   wildfly_netinstall{$version:
     destinationdir => "${install_dir}/wildfly-${version}",
     user           => $user,
