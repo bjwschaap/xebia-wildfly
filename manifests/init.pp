@@ -13,7 +13,9 @@ class wildfly(
   $console_log              = $wildfly::params::console_log,
   $pid_file                 = $wildfly::params::pid_file,
   $proxy_url                = $wildfly::params::proxy_url,
-  $deployment_dir           = $wildfly::params::deployment_dir
+  $deployment_dir           = $wildfly::params::deployment_dir,
+  $admin_user               = $wildfly::params::admin_user,
+  $admin_password           = $wildfly::params::admin_password
 ) inherits wildfly::params {
 
   anchor{'wildfly::begin': } ->

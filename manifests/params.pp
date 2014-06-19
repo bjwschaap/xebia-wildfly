@@ -9,7 +9,7 @@ class wildfly::params {
   $user = "wildfly"
   $shell = "/bin/bash"
   $install_dir = "/opt"
-  $version = "8.0.0.Final"
+  $version = "8.1.0.Final"
   $mode = "standalone"
   $profile = "standalone.xml"
   $wait_time = "60"
@@ -18,6 +18,8 @@ class wildfly::params {
   $proxy_url = undef
   $install_java = false
   $deployment_dir = undef
+  $admin_user = 'wildfly_admin'
+  $admin_password = 'changeme'
 
   case $::osfamily {
     'RedHat': {
