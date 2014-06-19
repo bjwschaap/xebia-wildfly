@@ -18,6 +18,6 @@ class wildfly(
   class{'wildfly::install': } ->
   class{'wildfly::config': } ~>
   class{'wildfly::service': } ->
-  anchor{'wildfly::end'}
+  anchor{'wildfly::end': }
 
 }
