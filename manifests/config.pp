@@ -40,8 +40,8 @@ class wildfly::config(
     source  => [ "puppet:///modules/wildfly/${init_script}" ]
   }
 
-  exec { "${install_dir}/wildfly/bin/add-user.sh ${admin_user} ${admin_password"}; touch ${install_dir}/wildfly/${mode}/admin_user.created":
+  exec { "${install_dir}/wildfly/bin/add-user.sh ${admin_user} ${admin_password"} && touch ${install_dir}/wildfly/${mode}/admin_user.created":
     creates => "${install_dir}/wildfly/${mode}/admin_user.created"
   }
-    
+
 }
