@@ -21,7 +21,7 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
 
   def create
 
-    file_type = extension(resource[:url])
+    file_type = extension(resource[:version])
 
     begin
 
