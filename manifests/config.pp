@@ -9,7 +9,7 @@ class wildfly::config(
   $init_script              = $wildfly::init_script,
   $wait_time                = $wildfly::wait_time,
   $bind_address             = $wildfly::bind_address,
-  $bind_address_management  = $wildfly::bind_address_management
+  $bind_address_management  = $wildfly::bind_address_management,
   $deployment_dir           = $wildfly::deloyment_dir
 ) {
 
