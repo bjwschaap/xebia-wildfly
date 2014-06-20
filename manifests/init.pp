@@ -21,6 +21,8 @@ class wildfly(
   $https_port               = $wildfly::params::https_port,
   $management_http_port     = $wildfly::params::management_http_port,
   $management_https_port    = $wildfly::params::management_https_port,
+  $postgresql_version       = $wildfly::params::postgresql_version,
+  $install_postgresql       = $wildfly::params::install_postgresql
 ) inherits wildfly::params {
 
   # variables

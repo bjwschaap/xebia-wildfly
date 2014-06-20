@@ -30,6 +30,11 @@ class wildfly::params {
   $management_http_port     = '9990'
   $management_https_port    = '9993'
 
+  #driver config
+  $install_postgresql       = "false"
+  $postgresql_version       = "9.2-1002"
+
+
   case $::osfamily {
     'RedHat': {
       $default_conf = "/etc/default/wildfly.conf"

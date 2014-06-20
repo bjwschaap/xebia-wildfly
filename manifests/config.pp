@@ -14,7 +14,8 @@ class wildfly::config(
   $admin_user               = $wildfly::admin_user,
   $admin_password           = $wildfly::admin_password,
   $profile_extensions       = $wildfly::profile_extensions,
-  $profile_subsystems       = $wildfly::profile_subsystems
+  $profile_subsystems       = $wildfly::profile_subsystems,
+  $install_postgresql       = $wildfly::install_postgresql
 ) {
 
   #file { "${install_dir}/wildfly/${mode}/configuration/${profile}":
@@ -25,6 +26,12 @@ class wildfly::config(
   #  mode    => 0644,
   #  content => template("wildfly/${profile}.erb")
   #}
+
+
+
+  if str2bool($install_postgresql) {
+    class{'wildfly::drivers::postgresql':}
+  }
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
     ensure => present,
