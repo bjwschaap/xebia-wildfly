@@ -4,7 +4,7 @@ require "digest/md5"
 require File.expand_path(File.join(File.dirname(__FILE__), '..','jar.rb'))
 
 
-Puppet::Type.type(:wildfly_download_driver).provide(:curl, :parent => Puppet::Provider::Jar)  do
+Puppet::Type.type(:wildfly_driver_download).provide(:curl, :parent => Puppet::Provider::Jar)  do
 
   confine :osfamily => [:redhat]
 

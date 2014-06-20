@@ -32,7 +32,7 @@ class wildfly::params {
 
   #driver config
   $install_postgresql       = "false"
-  $postgresql_version       = "9.2-1002"
+  $postgresql_version       = "9.2-1004"
 
 
   case $::osfamily {
