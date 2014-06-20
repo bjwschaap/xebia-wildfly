@@ -3,10 +3,12 @@
                 <stateful default-access-timeout="5000" cache-ref="simple" passivation-disabled-cache-ref="simple"/>
                 <singleton default-access-timeout="5000"/>
             </session-bean>
+            <% if scope.lookupvar('wildfly::profile') == "standalone-full" -%>
             <mdb>
                 <resource-adapter-ref resource-adapter-name="${ejb.resource-adapter-name:hornetq-ra.rar}"/>
                 <bean-instance-pool-ref pool-name="mdb-strict-max-pool"/>
             </mdb>
+            <% end -%>
             <pools>
                 <bean-instance-pools>
                     <!-- A sample strict max pool configuration -->
@@ -34,7 +36,9 @@
                     <keepalive-time time="100" unit="milliseconds"/>
                 </thread-pool>
             </thread-pools>
+            <% if scope.lookupvar('wildfly::profile') == "standalone-full" -%>
             <iiop enable-by-default="false" use-qualified-name="false"/>
+            <% end -%>
             <default-security-domain value="other"/>
             <default-missing-method-permissions-deny-access value="true"/>
         </subsystem>

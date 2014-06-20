@@ -26,7 +26,7 @@ class wildfly::config(
   #  content => template("wildfly/${profile}.erb")
   #}
 
-  concat { "${install_dir}/wildfly/${mode}/configuration/${profile}":
+  concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
     ensure => present,
     require => [ User["${user}"], File["${install_dir}/wildfly"] ],
     owner   => "${user}",
@@ -34,7 +34,7 @@ class wildfly::config(
     mode    => 0644,
   }
 
-  Concat::Fragment{target => "${install_dir}/wildfly/${mode}/configuration/${profile}" }
+  Concat::Fragment{target => "${install_dir}/wildfly/${mode}/configuration/${profile}.xml" }
 
   concat::fragment{'file_header':
     content => template('wildfly/standalone/file_header.xml.erb'),
