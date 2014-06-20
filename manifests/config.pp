@@ -92,7 +92,7 @@ class wildfly::config(
 
   file { "${install_dir}/wildfly/bin/standalone.conf":
     ensure  => present,
-    content => template('template/standalone.conf.erb'),
+    content => template('wildfly/standalone.conf.erb'),
     owner   => $user,
     group   => $user,
     mode    => 0755
