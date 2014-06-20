@@ -34,6 +34,11 @@ class wildfly::params {
   $install_postgresql       = "false"
   $postgresql_version       = "9.2-1004"
 
+  #memory settings
+  $xms                      = '256m'
+  $xmx                      = '512m'
+  $maxpermsize              = '128m'
+
 
   case $::osfamily {
     'RedHat': {
