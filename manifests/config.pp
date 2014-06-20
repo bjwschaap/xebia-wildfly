@@ -45,7 +45,7 @@ class wildfly::config(
     order   => '20'
   }
   wildfly::profile::extension{$profile_extensions:
-    target => "${install_dir}/wildfly/${mode}/configuration/${profile}"
+    target => "${install_dir}/wildfly/${mode}/configuration/${profile}",
     order  => '25'
   }
 
