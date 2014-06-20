@@ -62,7 +62,7 @@ class wildfly::config(
     content => template('wildfly/standalone/profile_header.xml.erb'),
     order   => '50',
   }
-  wildfly::profile::subsystems{$profile_subsystems:
+  wildfly::profile::subsystem{$profile_subsystems:
     target => "${install_dir}/wildfly/${mode}/configuration/${profile}",
     order  => '55'
   }
