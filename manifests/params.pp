@@ -18,8 +18,17 @@ class wildfly::params {
   $proxy_url = undef
   $install_java = false
   $deployment_dir = undef
+
+  # admin user
   $admin_user = 'wildfly-admin'
   $admin_password = 'changeme'
+
+  #port config
+  $ajp_port                 = '8009'
+  $http_port                = '8080'
+  $https_port               = '8443'
+  $management_http_port     = '9990'
+  $management_https_port    = '9993'
 
   case $::osfamily {
     'RedHat': {

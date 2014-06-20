@@ -15,7 +15,12 @@ class wildfly(
   $proxy_url                = $wildfly::params::proxy_url,
   $deployment_dir           = $wildfly::params::deployment_dir,
   $admin_user               = $wildfly::params::admin_user,
-  $admin_password           = $wildfly::params::admin_password
+  $admin_password           = $wildfly::params::admin_password,
+  $ajp_port                 = $wildfly::params::ajp_port,
+  $http_port                = $wildfly::params::http_port,
+  $https_port               = $wildfly::params::https_port,
+  $management_http_port     = $wildfly::params::management_http_port,
+  $management_https_port    = $wildfly::params::management_https_port,
 ) inherits wildfly::params {
 
   # variables

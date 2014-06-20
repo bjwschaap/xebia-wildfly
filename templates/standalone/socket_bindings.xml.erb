@@ -1,9 +1,9 @@
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
-        <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9990}"/>
-        <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
-        <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
-        <socket-binding name="http" port="${jboss.http.port:8080}"/>
-        <socket-binding name="https" port="${jboss.https.port:8443}"/>
+        <socket-binding name="management-http" interface="management" port="<%= scope.lookupvar('wildfly::management_http_port')%>"/>
+        <socket-binding name="management-https" interface="management" port="<%= scope.lookupvar('wildfly::management_https_port')%>"/>
+        <socket-binding name="ajp" port="<%= scope.lookupvar('wildfly::ajp_port')%>"/>
+        <socket-binding name="http" port="<%= scope.lookupvar('wildfly::http_port')%>"/>
+        <socket-binding name="https" port="<%= scope.lookupvar('wildfly::https_port')%>"/>
         <% if scope.lookupvar('wildfly::profile') == "standalone-full" -%>
         <socket-binding name="jacorb" interface="unsecure" port="3528"/>
         <socket-binding name="jacorb-ssl" interface="unsecure" port="3529"/>
