@@ -41,7 +41,7 @@ class wildfly::config(
     order   => '10'
   }
   concat::fragment{'extension_header':
-    content => template('wildfly/standalone/profile_header.xml.erb'),
+    content => template('wildfly/standalone/extensions_header.xml.erb'),
     order   => '20'
   }
   wildfly::profile::extension{$profile_extensions:
@@ -50,7 +50,7 @@ class wildfly::config(
   }
 
   concat::fragment{'extension_footer':
-    content => template('wildfly/standalone/profile_header.xml.erb'),
+    content => template('wildfly/standalone/extensions_footer.xml.erb'),
     order   => '30'
   }
 
