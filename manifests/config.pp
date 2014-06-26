@@ -15,7 +15,7 @@ class wildfly::config(
   $admin_password           = $wildfly::admin_password,
   $profile_extensions       = $wildfly::profile_extensions,
   $profile_subsystems       = $wildfly::profile_subsystems,
-  $install_postgresql       = $wildfly::install_postgresql
+  $install_postgresql_driver       = $wildfly::install_postgresql_driver
 ) {
 
   #file { "${install_dir}/wildfly/${mode}/configuration/${profile}":
@@ -29,8 +29,12 @@ class wildfly::config(
 
 
 
-  if str2bool($install_postgresql) {
+  if str2bool($install_postgresql_driver) {
     class{'wildfly::drivers::postgresql':}
+  }
+
+  if str2bool($install_mq){
+    class{'wildfly::drivers::mq':}
   }
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":

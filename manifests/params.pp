@@ -31,7 +31,7 @@ class wildfly::params {
   $management_https_port    = '9993'
 
   #driver config
-  $install_postgresql       = "false"
+  $install_postgresql_driver       = "false"
   $postgresql_version       = "9.2-1004"
 
   #memory settings

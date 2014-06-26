@@ -22,7 +22,8 @@ class wildfly(
   $management_http_port     = $wildfly::params::management_http_port,
   $management_https_port    = $wildfly::params::management_https_port,
   $postgresql_version       = $wildfly::params::postgresql_version,
-  $install_postgresql       = $wildfly::params::install_postgresql,
+  $install_postgresql_driver       = $wildfly::params::install_postgresql_driver,
+  $install_mq_driver        = $wildfly::params::install_mq_driver,
   $xmx                      = $wildfly::params::xmx,
   $xms                      = $wildfly::params::xms,
   $maxpermsize              = $wildfly::params::maxpermsize
