@@ -15,8 +15,8 @@ class wildfly::config(
   $admin_password            = $wildfly::admin_password,
   $profile_extensions        = $wildfly::profile_extensions,
   $profile_subsystems        = $wildfly::profile_subsystems,
-  $install_postgresql_driver = $wildfly::install_postgresql_driver
-  $install_mq_driver         = $wildfly::install_postgresql_driver
+  $install_postgresql_driver = $wildfly::install_postgresql_driver,
+  $install_mq_driver         = $wildfly::install_mq_driver
 ) {
 
 
