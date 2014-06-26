@@ -14,7 +14,7 @@ class wildfly::drivers(
     -> Anchor['wildfly::driver::end']
   }
 
-  if str2bool($install_mq){
+  if str2bool($install_mq_driver){
     Anchor['wildfly::driver::begin']
     -> class{'wildfly::drivers::mq':}
     -> Anchor['wildfly::driver::end']
