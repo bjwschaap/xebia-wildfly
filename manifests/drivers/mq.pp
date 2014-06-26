@@ -9,11 +9,8 @@ class wildfly::drivers::mq(
     ensure  => present,
     owner   => $user,
     group   => $user,
-    mode    => 0644
+    mode    => 0644,
     source  => "puppet:///modules/wildfly/drivers/undisclosed_evil_empire_stuffels_jms-7.5.0.3.rar",
   }
-
-
-
 
 }
