@@ -1,4 +1,4 @@
-class wildfly::driver(
+class wildfly::drivers(
   $install_postgresql_driver  = $wildfly::install_postgresql_driver
   $install_mq_driver          = $wildfly::install_mq_driver
 ) {
