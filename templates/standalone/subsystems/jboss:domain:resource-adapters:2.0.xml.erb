@@ -1,35 +1,38 @@
         <subsystem xmlns="urn:jboss:domain:resource-adapters:2.0">
-        <% if scope.lookupvar('wildfly::install_mq_driver') == 'true'-%>
-         <resource-adapter>
-            <archive>
-                wmq.jmsra.rar
-            </archive>
-            <transaction-support>NoTransaction</transaction-support>
-            <connection-definitions>
-                <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl"
-                        jndi-name="java:jboss/MQ.CONNECTIONFACTORY.NAME"
-                        pool-name="MQ.CONNECTIONFACTORY.NAME">
-                    <config-property name="channel">
-                        MQ.CHANNEL.NAME
-                    </config-property>
-                    <config-property name="transportType">
-                        MQ.CLIENT
-                    </config-property>
-                    <config-property name="queueManager">
-                        MQ.QUEUE.MANAGER
-                    </config-property>
-                </connection-definition>
-            </connection-definitions>
-            <admin-objects>
-                <admin-object
-                        class-name="com.ibm.mq.connector.outbound.MQQueueProxy"
-                        jndi-name="java:jboss/MQ.QUEUE.NAME"
-                        pool-name="MQ.QUEUE.NAME">
-                    <config-property name="baseQueueName">
-                        MQ.QUEUE.NAME
-                    </config-property>
-                </admin-object>
-            </admin-objects>
-         </resource-adapter>
+            <resource-adapters>
+                <% if scope.lookupvar('wildfly::install_mq_driver') == 'true'-%>
+
+                 <resource-adapter>
+                    <archive>
+                        wmq.jmsra.rar
+                    </archive>
+                    <transaction-support>NoTransaction</transaction-support>
+                    <connection-definitions>
+                        <connection-definition class-name="com.ibm.mq.connector.outbound.ManagedConnectionFactoryImpl"
+                                jndi-name="java:jboss/MQ.CONNECTIONFACTORY.NAME"
+                                pool-name="MQ.CONNECTIONFACTORY.NAME">
+                            <config-property name="channel">
+                                MQ.CHANNEL.NAME
+                            </config-property>
+                            <config-property name="transportType">
+                                MQ.CLIENT
+                            </config-property>
+                            <config-property name="queueManager">
+                                MQ.QUEUE.MANAGER
+                            </config-property>
+                        </connection-definition>
+                    </connection-definitions>
+                    <admin-objects>
+                        <admin-object
+                                class-name="com.ibm.mq.connector.outbound.MQQueueProxy"
+                                jndi-name="java:jboss/MQ.QUEUE.NAME"
+                                pool-name="MQ.QUEUE.NAME">
+                            <config-property name="baseQueueName">
+                                MQ.QUEUE.NAME
+                            </config-property>
+                        </admin-object>
+                    </admin-objects>
+                 </resource-adapter>
+            </resource-adapters>
         <% end -%>
         </subsystem>
