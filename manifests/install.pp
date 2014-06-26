@@ -38,7 +38,7 @@ class wildfly::install(
 
   file { "${install_dir}/wildfly":
     ensure  => 'link',
-    force   => true
+    force   => true,
     owner   => "${user}",
     group   => "${user}",
     target  => "${install_dir}/wildfly-${version}",
