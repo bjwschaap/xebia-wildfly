@@ -5,7 +5,7 @@ class wildfly::drivers::mq(
 
 
   # physical driver
-  file{"${install_dir}/standalone/deployments/wmq.jmsra.rar":
+  file{"${install_dir}/wildfly/standalone/deployments/wmq.jmsra.rar":
     ensure  => present,
     owner   => $user,
     group   => $user,
