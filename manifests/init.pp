@@ -152,7 +152,7 @@ class wildfly(
   anchor{'wildfly::begin':}
   -> class{'wildfly::install':}
   -> class{'wildfly::config':}
-  -> class{'wildfly::driver':}
+  -> class{'wildfly::drivers':}
   ~> class{'wildfly::service':}
   -> anchor{'wildfly::end': }
 
