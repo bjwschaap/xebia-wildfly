@@ -1,41 +1,25 @@
 # == Class wildfly::config
 #
 class wildfly::config(
-  $install_dir              = $wildfly::install_dir,
-  $mode                     = $wildfly::mode,
-  $user                     = $wildfly::user,
-  $profile                  = $wildfly::profile,
-  $default_conf             = $wildfly::default_conf,
-  $init_script              = $wildfly::init_script,
-  $wait_time                = $wildfly::wait_time,
-  $bind_address             = $wildfly::bind_address,
-  $bind_address_management  = $wildfly::bind_address_management,
-  $deployment_dir           = $wildfly::deployment_dir,
-  $admin_user               = $wildfly::admin_user,
-  $admin_password           = $wildfly::admin_password,
-  $profile_extensions       = $wildfly::profile_extensions,
-  $profile_subsystems       = $wildfly::profile_subsystems,
-  $install_postgresql_driver       = $wildfly::install_postgresql_driver
+  $install_dir               = $wildfly::install_dir,
+  $mode                      = $wildfly::mode,
+  $user                      = $wildfly::user,
+  $profile                   = $wildfly::profile,
+  $default_conf              = $wildfly::default_conf,
+  $init_script               = $wildfly::init_script,
+  $wait_time                 = $wildfly::wait_time,
+  $bind_address              = $wildfly::bind_address,
+  $bind_address_management   = $wildfly::bind_address_management,
+  $deployment_dir            = $wildfly::deployment_dir,
+  $admin_user                = $wildfly::admin_user,
+  $admin_password            = $wildfly::admin_password,
+  $profile_extensions        = $wildfly::profile_extensions,
+  $profile_subsystems        = $wildfly::profile_subsystems,
+  $install_postgresql_driver = $wildfly::install_postgresql_driver
+  $install_mq_driver         = $wildfly::install_postgresql_driver
 ) {
 
-  #file { "${install_dir}/wildfly/${mode}/configuration/${profile}":
-  #  ensure  => present,
-  #  require => [ User["${user}"], File["${install_dir}/wildfly"] ],
-  #  owner   => "${user}",
-  #  group   => "${user}",
-  #  mode    => 0644,
-  #  content => template("wildfly/${profile}.erb")
-  #}
 
-
-
-  if str2bool($install_postgresql_driver) {
-    class{'wildfly::drivers::postgresql':}
-  }
-
-  if str2bool($install_mq){
-    class{'wildfly::drivers::mq':}
-  }
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
     ensure => present,

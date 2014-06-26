@@ -33,7 +33,7 @@ class wildfly::params {
   #driver config
   $install_postgresql_driver = "false"
   $postgresql_version        = "9.2-1004"
-  $install_mq_driver         = "true"
+  $install_mq_driver         = "false"
 
   #memory settings
   $xms                      = '256m'

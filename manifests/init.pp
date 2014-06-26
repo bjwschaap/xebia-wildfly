@@ -149,10 +149,11 @@ class wildfly(
 
 
   #flow
-  anchor{'wildfly::begin': } ->
-  class{'wildfly::install': } ->
-  class{'wildfly::config': } ~>
-  class{'wildfly::service': } ->
-  anchor{'wildfly::end': }
+  anchor{'wildfly::begin':}
+  -> class{'wildfly::install':}
+  -> class{'wildfly::config':}
+  -> class{'wildfly::driver':}
+  ~> class{'wildfly::service':}
+  -> anchor{'wildfly::end': }
 
 }
