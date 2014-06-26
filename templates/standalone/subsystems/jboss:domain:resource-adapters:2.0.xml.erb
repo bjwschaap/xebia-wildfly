@@ -1,5 +1,5 @@
         <subsystem xmlns="urn:jboss:domain:resource-adapters:2.0">
-        <% if scope.lookupvar('wildfly::install_mq') == 'true'-%>
+        <% if scope.lookupvar('wildfly::install_mq_driver') == 'true'-%>
          <resource-adapter>
             <archive>
                 wmq.jmsra.rar
