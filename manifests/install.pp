@@ -15,7 +15,7 @@ class wildfly::install(
   File["${install_dir}/wildfly"]
 
   # java?
-  if str2bool($install_java) {
+  if str2bool($install_java) == true {
     case $::osfamily {
       'RedHat' : {
                     $java_packages = ['java-1.7.0-openjdk']

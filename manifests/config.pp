@@ -22,10 +22,10 @@ class wildfly::config(
 
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
-    ensure => present,
-    require => [ User["${user}"], File["${install_dir}/wildfly"] ],
-    owner   => "${user}",
-    group   => "${user}",
+    ensure  => present,
+    require => [ User[$user], File["${install_dir}/wildfly"] ],
+    owner   => $user,
+    group   => $user,
     mode    => 0644,
   }
 
@@ -83,22 +83,22 @@ class wildfly::config(
     content => template('wildfly/standalone.conf.erb'),
     owner   => $user,
     group   => $user,
-    mode    => 0755
+    mode    => '0755'
   }
 
-  file { "${default_conf}":
+  file { $default_conf:
     ensure  => present,
     owner   => root,
     group   => root,
-    mode    => 0644,
+    mode    => '0644',
     content => template('wildfly/wildfly.conf.erb')
   }
 
-  file { "/etc/init.d/wildfly":
+  file { '/etc/init.d/wildfly':
     ensure  => present,
-    require => File["${default_conf}"],
+    require => File[$default_conf],
     owner   => root,
-    group   => 0755,
+    group   => '0755',
     source  => [ "puppet:///modules/wildfly/${init_script}" ]
   }
 

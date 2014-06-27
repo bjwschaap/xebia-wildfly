@@ -4,17 +4,17 @@
 # It sets variables according to platform
 #
 class wildfly::params {
-  $bind_address             = "127.0.0.1"
-  $bind_address_management  = "127.0.0.1"
-  $user = "wildfly"
-  $shell = "/bin/bash"
-  $install_dir = "/opt"
-  $version = "8.1.0.Final"
-  $mode = "standalone"
-  $profile = "standalone-full"
-  $wait_time = "60"
-  $console_log = "/var/log/wildfly/console.log"
-  $pid_file = "/var/run/wildfly/wildfly.pid"
+  $bind_address             = '127.0.0.1'
+  $bind_address_management  = '127.0.0.1'
+  $user = 'wildfly'
+  $shell = '/bin/bash'
+  $install_dir = '/opt'
+  $version = '8.1.0.Final'
+  $mode = 'standalone'
+  $profile = 'standalone-full'
+  $wait_time = '60'
+  $console_log = '/var/log/wildfly/console.log'
+  $pid_file = '/var/run/wildfly/wildfly.pid'
   $proxy_url = undef
   $install_java = false
   $deployment_dir = undef
@@ -31,27 +31,29 @@ class wildfly::params {
   $management_https_port    = '9993'
 
   #driver config
-  $install_postgresql_driver = "false"
-  $postgresql_version        = "9.2-1004"
-  $install_mq_driver         = "false"
+  $install_postgresql_driver = 'false'
+  $postgresql_version        = '9.2-1004'
+  $install_mq_driver         = 'false'
 
   #memory settings
   $xms                      = '256m'
   $xmx                      = '512m'
   $maxpermsize              = '128m'
 
+  #logging settings
+  $logging_properties       = {}
 
   case $::osfamily {
     'RedHat': {
-      $default_conf = "/etc/default/wildfly.conf"
-      $init_script = "wildfly-init-redhat.sh"
+      $default_conf = '/etc/default/wildfly.conf'
+      $init_script = 'wildfly-init-redhat.sh'
     }
     'Debian': {
-      $default_conf = "/etc/default/wildfly"
-      $init_script = "wildfly-init-debian.sh"
+      $default_conf = '/etc/default/wildfly'
+      $init_script = 'wildfly-init-debian.sh'
     }
     default: {
-      fail("${::operatingsystem} not supported")
+      fail('${::operatingsystem} not supported')
     }
   }
 
