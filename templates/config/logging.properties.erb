@@ -1,0 +1,62 @@
+# Note this file has been generated and will be overwritten if a
+# logging subsystem has been defined in the XML configuration.
+
+
+# Additional loggers to configure (the root logger is always configured)
+<%
+    @default_settings = Hash.new
+    @default_settings['loggers'] = "jacorb,com.arjuna,org.apache.tomcat.util.modeler,org.jboss.as.config,jacorb.config,sun.rmi"
+    @default_settings['logger.level'] = "INFO"
+    @default_settings['logger.handlers'] = "CONSOLE,FILE"
+
+    @default_settings['logger.jacorb.level'] = "WARN"
+    @default_settings['logger.jacorb.useParentHandlers'] = "true"
+
+    @default_settings['logger.com.arjuna.level'] = "WARN"
+    @default_settings['logger.com.arjuna.useParentHandlers'] = "true"
+
+    @default_settings['logger.org.apache.tomcat.util.modeler.level'] = "WARN"
+    @default_settings['logger.org.apache.tomcat.util.modeler.useParentHandlers'] = 'true'
+
+    @default_settings['logger.org.jboss.as.config.level'] = 'DEBUG'
+    @default_settings['logger.org.jboss.as.config.useParentHandlers'] = 'true'
+
+    @default_settings['logger.jacorb.config.level'] = 'ERROR'
+    @default_settings['logger.jacorb.config.useParentHandlers'] = 'true'
+
+    @default_settings['logger.sun.rmi.level'] = 'WARN'
+    @default_settings['logger.sun.rmi.useParentHandlers'] = 'true'
+
+    @default_settings['handler.CONSOLE'] = 'org.jboss.logmanager.handlers.ConsoleHandler'
+    @default_settings['handler.CONSOLE.level'] = 'INFO'
+    @default_settings['handler.CONSOLE.formatter'] = 'COLOR-PATTERN'
+    @default_settings['handler.CONSOLE.properties'] = 'autoFlush,target,enabled'
+    @default_settings['handler.CONSOLE.autoFlush'] = 'true'
+    @default_settings['handler.CONSOLE.target'] = 'SYSTEM_OUT'
+    @default_settings['handler.CONSOLE.enabled'] = 'true'
+
+    @default_settings['handler.FILE'] = 'org.jboss.logmanager.handlers.PeriodicRotatingFileHandler'
+    @default_settings['handler.FILE.level'] = 'ALL'
+    @default_settings['handler.FILE.formatter'] = 'PATTERN'
+    @default_settings['handler.FILE.properties'] = 'append,autoFlush,enabled,suffix,fileName'
+    @default_settings['handler.FILE.constructorProperties'] = 'fileName,append'
+    @default_settings['handler.FILE.append'] = 'true'
+    @default_settings['handler.FILE.autoFlush'] = 'true'
+    @default_settings['handler.FILE.enabled'] = 'true'
+    @default_settings['handler.FILE.suffix'] = '.yyyy-MM-dd'
+    @default_settings['handler.FILE.fileName'] = '/opt/wildfly/standalone/log/server.log'
+
+    @default_settings['formatter.PATTERN'] = 'org.jboss.logmanager.formatters.PatternFormatter'
+    @default_settings['formatter.PATTERN.properties'] = 'pattern'
+    @default_settings['formatter.PATTERN.pattern'] = '%d{yyyy-MM-dd HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%E%n'
+
+    @default_settings['formatter.COLOR-PATTERN'] = 'org.jboss.logmanager.formatters.PatternFormatter'
+    @default_settings['formatter.COLOR-PATTERN.properties'] = 'pattern'
+    @default_settings['formatter.COLOR-PATTERN.pattern'] = '%K{level}%d{HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%E%n'
+
+    @default_settings.merge! @logging_properties if @logging_properties.is_a? Hash
+    p @logging_properties
+-%>
+<% @default_settings.each do |key,value| -%>
+    <%= key -%> = <%= value %>
+<% end -%>
