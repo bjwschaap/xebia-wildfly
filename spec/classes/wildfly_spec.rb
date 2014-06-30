@@ -14,6 +14,7 @@ describe 'wildfly' do
         it { should contain_class('wildfly::validation') }
         it { should contain_class('wildfly::install')}
         it { should contain_class('wildfly::config')}
+        it { should contain_class('wildfly::config::profile')}
         it { should contain_class('wildfly::config::logging')}
         it { should contain_class('wildfly::service')}
         it { should contain_class('wildfly::drivers')}

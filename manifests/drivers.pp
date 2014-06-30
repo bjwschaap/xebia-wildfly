@@ -6,19 +6,19 @@ class wildfly::drivers(
 
 
 
-  anchor{'wildfly::driver::begin':}
-  -> anchor{'wildfly::driver::end':}
+  anchor{'wildfly::drivers::begin':}
+  -> anchor{'wildfly::drivers::end':}
 
   if str2bool($install_postgresql_driver) {
-    Anchor['wildfly::driver::begin']
+    Anchor['wildfly::drivers::begin']
     -> class{'wildfly::drivers::postgresql':}
-    -> Anchor['wildfly::driver::end']
+    -> Anchor['wildfly::drivers::end']
   }
 
   if str2bool($install_mq_driver){
-    Anchor['wildfly::driver::begin']
+    Anchor['wildfly::drivers::begin']
     -> class{'wildfly::drivers::mq':}
-    -> Anchor['wildfly::driver::end']
+    -> Anchor['wildfly::drivers::end']
   }
 
 

@@ -2,10 +2,9 @@ class wildfly::config::profile(
   $install_dir                = $wildfly::install_dir,
   $mode                       = $wildfly::mode,
   $profile                    = $wildfly::profile,
-  $profile_extensions         = $wildfly::profile_extensions,
-  $profile_subsystems         = $wildfly::profile_subsystems,
   $install_postgresql_driver  = $wildfly::install_postgresql_driver,
-  $install_mq_driver          = $wildfly::install_mq_driver
+  $install_mq_driver          = $wildfly::install_mq_driver,
+  $user                       = $wildfly::user
 ){
 
 # variables
@@ -132,7 +131,6 @@ class wildfly::config::profile(
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
     ensure  => present,
-    require => [ User[$user], File["${install_dir}/wildfly"] ],
     owner   => $user,
     group   => $user,
     mode    => 0644,
