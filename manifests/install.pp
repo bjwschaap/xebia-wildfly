@@ -21,7 +21,7 @@ class wildfly::install(
                     $java_packages = ['java-1.7.0-openjdk']
                     User[$user] -> Package[$java_packages] -> Wildfly_netinstall[$version]
 
-                    package { $java_packages: ensure => present, allow_virtual => false }
+                    package { $java_packages: ensure => present }
                   }
       default  : {
                     fail("${::osfamily}:${::operatingsystem} not supported by this module")

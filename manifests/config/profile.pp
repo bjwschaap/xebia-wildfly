@@ -130,7 +130,6 @@ class wildfly::config::profile(
   }
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
-    ensure  => present,
     owner   => $user,
     group   => $user,
     mode    => 0644,
