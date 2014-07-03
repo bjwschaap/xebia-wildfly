@@ -48,6 +48,6 @@ class wildfly::config::logging(
 
   $default_settings = {'logging_file' => "${install_dir}/wildfly/${mode}/configuration/logging.properties" }
 
-  create_resources(wildfly::config::logging_settings, merge($default_logging_properties, $logging_properties, $default_settings )
+  create_resources(wildfly::config::logging_settings, merge($default_logging_properties, $logging_properties), $default_settings )
 }
 
