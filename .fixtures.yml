@@ -1,7 +1,8 @@
 fixtures:
   repositories:
-    stdlib: http://github.com/puppetlabs/puppetlabs-stdlib.git
-    concat: http://github.com/puppetlabs/puppetlabs-concat.git
+    stdlib:   http://github.com/puppetlabs/puppetlabs-stdlib.git
+    concat:   http://github.com/puppetlabs/puppetlabs-concat.git
+    inifile:  http://github.com/puppetlabs/puppetlabs-inifile.git
   symlinks:
     wildfly: "#{source_dir}"
 

@@ -43,6 +43,8 @@ class wildfly::params {
   #logging settings
   $logging_properties       = {}
 
+
+
   case $::osfamily {
     'RedHat': {
       $default_conf = '/etc/default/wildfly.conf'
