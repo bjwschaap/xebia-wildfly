@@ -5,14 +5,14 @@ class wildfly::config::logging(
   $mode               = $wildfly::mode
 ){
 
-  $default_logging_properties = {'loggers' => { value => "jacorb,com.arjuna,org.apache.tomcat.util.modeler,org.jboss.as.config,jacorb.config,sun.rmi"},
-     'logger.level' => { value => "INFO"},
-     'logger.handlers' => { value => "CONSOLE,FILE"},
-     'logger.jacorb.level' => { value => "WARN"},
-     'logger.jacorb.useParentHandlers' => { value => "true"},
-     'logger.com.arjuna.level' => { value => "WARN"},
-     'logger.com.arjuna.useParentHandlers' => { value => "true"},
-     'logger.org.apache.tomcat.util.modeler.level' => { value => "WARN"},
+  $default_logging_properties = {'loggers' => { value => 'com.arjuna,jacorb,org.jboss.as.config,org.apache.tomcat.util.modeler,sun.rmi,jacorb.config'},
+     'logger.level' => { value => 'INFO'},
+     'logger.handlers' => { value => 'CONSOLE,FILE'},
+     'logger.jacorb.level' => { value => 'WARN'},
+     'logger.jacorb.useParentHandlers' => { value => 'true'},
+     'logger.com.arjuna.level' => { value => 'WARN'},
+     'logger.com.arjuna.useParentHandlers' => { value => 'true'},
+     'logger.org.apache.tomcat.util.modeler.level' => { value => 'WARN'},
      'logger.org.apache.tomcat.util.modeler.useParentHandlers' => { value => 'true'},
      'logger.org.jboss.as.config.level' => { value => 'DEBUG'},
      'logger.org.jboss.as.config.useParentHandlers' => { value => 'true'},
