@@ -1,6 +1,6 @@
 #
 class wildfly::config::logging(
-  $logging_properties = $wildfly::logging_porperties,
+  $logging_properties = $wildfly::logging_properties,
   $install_dir        = $wildfly::install_dir,
   $mode               = $wildfly::mode
 ){
