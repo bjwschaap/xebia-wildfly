@@ -17,7 +17,7 @@ class wildfly::params {
   $pid_file = '/var/run/wildfly/wildfly.pid'
   $proxy_url = undef
   $install_java = 'true'
-  $deployment_dir = undef
+  $deployment_dir = '/var/tmp'
 
   # admin user
   $admin_user = 'wildfly-admin'

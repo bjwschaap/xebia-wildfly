@@ -176,7 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  beaker
+  beaker (= 1.13.1)
   beaker-rspec
   pry
   puppet

@@ -1,4 +1,5 @@
 require 'spec_helper_acceptance'
+require 'pry'
 
 describe 'server:', :unless => UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
 

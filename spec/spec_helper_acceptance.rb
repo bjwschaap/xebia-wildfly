@@ -1,6 +1,7 @@
 
 require 'beaker-rspec/spec_helper'
 require 'beaker-rspec/helpers/serverspec'
+require 'pry'
 
 LANG="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
