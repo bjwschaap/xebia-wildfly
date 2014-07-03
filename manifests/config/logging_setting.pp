@@ -1,4 +1,4 @@
-define wildfly::config::loggin_setting(
+define wildfly::config::logging_setting(
   $value,
   $logging_file
 
