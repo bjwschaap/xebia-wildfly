@@ -12,14 +12,13 @@ group :development, :test do
   gem 'rspec-system',                     :require => false
   #gem 'rspec-system-puppet',              :require => false
   #gem 'rspec-system-serverspec','>2.0.0', :require => false
-  gem 'serverspec',              :require => false
-  gem 'puppet-lint',             :require => false
-  gem 'pry',                     :require => false
-  gem 'simplecov',               :require => false
-  gem 'beaker','1.13.1',   		 :require => false
-  gem 'beaker-rspec', 		 :require => false
-  gem 'vagrant-wrapper',         :require => false
-  gem 'vagrant-vbox-snapshot',   :require => false
-  gem 'puppet',         :require => false
+  gem 'serverspec',               :require => false
+  gem 'puppet-lint',              :require => false
+  gem 'pry',                      :require => false
+  gem 'simplecov',                :require => false
+  gem 'beaker','1.13.1',   		    :require => false
+  gem 'beaker-rspec', 		        :require => false
+  gem 'vagrant-wrapper', 		      :require => false
+  gem 'puppet',                   :require => false
 end
 

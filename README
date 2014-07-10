@@ -2,6 +2,12 @@ wildfly
 
 This is the wildfly module.
 
+Testing
+-------
+before: bundle install
+unit tests: rake spec
+acceptance tests: bundle exec rspec spec/acceptance
+
 License
 -------
 

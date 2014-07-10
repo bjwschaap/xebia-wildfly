@@ -170,7 +170,6 @@ GEM
       unf_ext
     unf_ext (0.0.6)
     uuidtools (2.1.4)
-    vagrant-vbox-snapshot (0.0.5)
     vagrant-wrapper (1.2.1.1)
 
 PLATFORMS
@@ -189,5 +188,4 @@ DEPENDENCIES
   rspec-system
   serverspec
   simplecov
-  vagrant-vbox-snapshot
   vagrant-wrapper

@@ -81,7 +81,6 @@ RSpec.configure do |c|
       end
       on host, puppet('module','install','puppetlabs-concat'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
-      vagrant_cmd("snapshot take #{host} #{host_initial}")
     end
   end
 end
