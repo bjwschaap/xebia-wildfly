@@ -5,7 +5,7 @@ class wildfly::config::logging(
   $mode               = $wildfly::mode
 ){
 
-  $default_logging_properties = {'loggers' => { value => 'com.arjuna,jacorb,org.jboss.as.config,org.apache.tomcat.util.modeler,sun.rmi,jacorb.config'},
+  $default_logging_properties = {
      'logger.level' => { value => 'INFO'},
      'logger.handlers' => { value => 'CONSOLE,FILE'},
      'logger.jacorb.level' => { value => 'WARN'},

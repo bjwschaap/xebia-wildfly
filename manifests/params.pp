@@ -4,8 +4,8 @@
 # It sets variables according to platform
 #
 class wildfly::params {
-  $bind_address             = '127.0.0.1'
-  $bind_address_management  = '127.0.0.1'
+  $bind_address             = '0.0.0.0'
+  $bind_address_management  = '0.0.0.0'
   $user = 'wildfly'
   $shell = '/bin/bash'
   $install_dir = '/opt'

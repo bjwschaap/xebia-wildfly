@@ -19,6 +19,7 @@ group :development, :test do
   gem 'beaker','1.13.1',   		 :require => false
   gem 'beaker-rspec', 		 :require => false
   gem 'vagrant-wrapper',         :require => false
+  gem 'vagrant-vbox-snapshot',   :require => false
   gem 'puppet',         :require => false
 end
 
