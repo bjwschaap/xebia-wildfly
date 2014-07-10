@@ -1,7 +1,9 @@
+#
+#
 define wildfly::profile::subsystem(
   $target,
   $subsystem = $name,
-  $order = "35"
+  $order = '35'
 ){
 
   concat::fragment{"subsystem:${subsystem}":

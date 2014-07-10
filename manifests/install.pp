@@ -30,7 +30,7 @@ class wildfly::install(
     }
 
   wildfly_netinstall{$version:
-    destinationdir => "${install_dir}",
+    destinationdir => $install_dir,
     user           => $user,
     group          => $user,
     proxy_url      => $proxy_url,
@@ -39,14 +39,14 @@ class wildfly::install(
   file { "${install_dir}/wildfly":
     ensure  => 'link',
     force   => true,
-    owner   => "${user}",
-    group   => "${user}",
+    owner   => $user,
+    group   => $user,
     target  => "${install_dir}/wildfly-${version}",
   }
 
-  user { "${user}":
-    shell   => "${shell}",
-    ensure  => "present"
+  user { $user:
+    ensure  => present,
+    shell   => $shell,
   }
 
 

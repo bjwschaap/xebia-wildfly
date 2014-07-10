@@ -55,7 +55,7 @@ class wildfly::params {
       $init_script = 'wildfly-init-debian.sh'
     }
     default: {
-      fail('${::operatingsystem} not supported')
+      fail("${::operatingsystem} not supported")
     }
   }
 

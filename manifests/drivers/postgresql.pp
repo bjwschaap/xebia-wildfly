@@ -1,3 +1,4 @@
+# This installs the Postgresql JDBC drivers
 class wildfly::drivers::postgresql(
   $install_dir        = $wildfly::install_dir,
   $user               = $wildfly::user,

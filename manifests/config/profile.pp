@@ -1,3 +1,5 @@
+# This sets the WildFly profile
+#
 class wildfly::config::profile(
   $install_dir                = $wildfly::install_dir,
   $mode                       = $wildfly::mode,
@@ -126,6 +128,9 @@ class wildfly::config::profile(
         'jboss:domain:webservices:1.2',
         'jboss:domain:weld:2.0',
       ]
+    }
+    default: {
+      fail 'Unsupported profile setting'
     }
   }
 
