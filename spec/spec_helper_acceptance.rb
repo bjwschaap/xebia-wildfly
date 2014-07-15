@@ -1,11 +1,9 @@
-
 require 'beaker-rspec/spec_helper'
 require 'beaker-rspec/helpers/serverspec'
 require 'pry'
 
 
-LANG="en_US.UTF-8"
-LC_ALL="en_US.UTF-8"
+
 
 class String
   # Provide ability to remove indentation from strings, for the purpose of
@@ -44,14 +42,14 @@ unless ENV['RS_PROVISION'] == 'no' or ENV['BEAKER_provision'] == 'no'
   end
   hosts.each do |host|
     shell("mkdir -p #{host['distmoduledir']}")
-    #if ! host.is_pe?
+    if ! host.is_pe?
       # Augeas is only used in one place, for Redhat.
-      #if fact('osfamily') == 'RedHat'
-      #  install_package host, 'ruby-devel'
-      #  install_package host, 'augeas-devel'
-      #  install_package host, 'ruby-augeas'
-     # end
-    #end
+      if fact('osfamily') == 'RedHat'
+        install_package host, 'ruby-devel'
+        install_package host, 'augeas-devel'
+        install_package host, 'ruby-augeas'
+      end
+    end
   end
 end
 
@@ -79,8 +77,14 @@ RSpec.configure do |c|
       if fact('osfamily') == 'RedHat'
         shell('yum -y install policycoreutils-python')
       end
+
+      if RUBY_VERSION =~ /2/
+        Encoding.default_external = Encoding::UTF_8
+        Encoding.default_internal = Encoding::UTF_8
+      end
       on host, puppet('module','install','puppetlabs-concat'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module','install','puppetlabs-inifile'), { :acceptable_exit_codes => [0,1] }
     end
   end
 end
