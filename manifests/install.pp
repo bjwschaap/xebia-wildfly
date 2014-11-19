@@ -24,7 +24,8 @@ class wildfly::install(
                     package { $java_packages: ensure => present }
                   }
       default  : {
-                    fail("${::osfamily}:${::operatingsystem} not supported by this module")
+                    fail("${::osfamily}:${::operatingsystem} not supported for auto java install")
+                    #User[$user] -> Package[$java_packages] -> Wildfly_netinstall[$version]
                   }
             }
     }
