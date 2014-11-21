@@ -6,7 +6,8 @@ class wildfly::config::profile(
   $profile                    = $wildfly::profile,
   $install_postgresql_driver  = $wildfly::install_postgresql_driver,
   $install_mq_driver          = $wildfly::install_mq_driver,
-  $user                       = $wildfly::user
+  $user                       = $wildfly::user,
+  $system_properties          = $wildfly::system_properties
 ){
 
 # variables
@@ -135,9 +136,9 @@ class wildfly::config::profile(
   }
 
   concat { "${install_dir}/wildfly/${mode}/configuration/${profile}.xml":
-    owner   => $user,
-    group   => $user,
-    mode    => 0644,
+    owner => $user,
+    group => $user,
+    mode  => 0644,
   }
 
   Concat::Fragment{target => "${install_dir}/wildfly/${mode}/configuration/${profile}.xml" }
@@ -158,6 +159,21 @@ class wildfly::config::profile(
   concat::fragment{'extension_footer':
     content => template('wildfly/standalone/extensions_footer.xml.erb'),
     order   => '30'
+  }
+
+  concat::fragment{'system_properties_header':
+    content => template('wildfly/standalone/system_properties_header.xml.erb'),
+    order   => '32'
+  }
+
+  wildfly::profile::system_properties{$system_properties:
+    target => "${install_dir}/wildfly/${mode}/configuration/${profile}",
+    order  => '34'
+  }
+
+  concat::fragment{'system_properties_footer':
+    content => template('wildfly/standalone/system_properties_footer.xml.erb'),
+    order   => '36'
   }
 
   concat::fragment{'management_section':
