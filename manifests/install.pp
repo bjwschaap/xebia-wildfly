@@ -26,6 +26,7 @@ class wildfly::install(
       'Debian'  : {
                     $java_packages = ['openjdk-7-jdk']
                     User[$user] -> Package[$java_packages] -> Wildfly_netinstall[$version]
+                    package { $java_packages: ensure => present }
                   }
       default  : {
                     fail("${::osfamily}:${::operatingsystem} not supported by this module")
