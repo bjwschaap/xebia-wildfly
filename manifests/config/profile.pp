@@ -169,7 +169,6 @@ class wildfly::config::profile(
   wildfly::profile::system_properties{$system_properties:
     target => "${install_dir}/wildfly/${mode}/configuration/${profile}",
     order  => '34',
-    notify => Service['wildfly']
   }
 
   concat::fragment{'system_properties_footer':
