@@ -8,7 +8,7 @@ define wildfly::profile::system_properties(
 
   concat::fragment{"system_property:${system_property}":
     content => template('wildfly/standalone/system_properties.xml.erb'),
-    order   => $order
+    order   => $order,
     notify  => Service['wildfly']
   }
 
