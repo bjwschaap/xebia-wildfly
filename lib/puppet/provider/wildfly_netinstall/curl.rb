@@ -6,8 +6,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..','zip.rb'))
 
 Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provider::Zip)  do
 
-  confine :osfamily => [:redhat]
-
+  confine :osfamily => [:redhat,:debian]
 
   commands  :curl     => '/usr/bin/curl',
             :mktemp   => '/bin/mktemp',
@@ -21,7 +20,7 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
 
   def create
 
-    file_type = extension(resource[:version])
+    #file_type = extension(resource[:version])
 
     begin
 
@@ -31,7 +30,6 @@ Puppet::Type.type(:wildfly_netinstall).provide(:curl, :parent => Puppet::Provide
 
       set_proxy_url
 
-      
       curl( '--output', "#{download_dir}/archive.zip", url(resource[:version]))
 
       unzip("#{download_dir}/archive.zip", '-d', "#{resource[:destinationdir]}")

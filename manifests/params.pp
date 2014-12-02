@@ -16,7 +16,7 @@ class wildfly::params {
   $console_log = '/var/log/wildfly/console.log'
   $pid_file = '/var/run/wildfly/wildfly.pid'
   $proxy_url = undef
-  $install_java = 'true'
+  $install_java = true
   $deployment_dir = '/var/tmp'
 
   # admin user
@@ -31,9 +31,9 @@ class wildfly::params {
   $management_https_port    = '9993'
 
   #driver config
-  $install_postgresql_driver = 'false'
+  $install_postgresql_driver = false
   $postgresql_version        = '9.2-1004'
-  $install_mq_driver         = 'false'
+  $install_mq_driver         = false
 
   #memory settings
   $xms                      = '256m'
@@ -43,7 +43,7 @@ class wildfly::params {
   #logging settings
   $logging_properties       = {}
 
-
+  $system_properties        = {}
 
   case $::osfamily {
     'RedHat': {

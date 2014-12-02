@@ -23,10 +23,15 @@ class wildfly::install(
 
                     package { $java_packages: ensure => present }
                   }
+      'Debian'  : {
+                    $java_packages = ['openjdk-7-jdk']
+                    User[$user] -> Package[$java_packages] -> Wildfly_netinstall[$version]
+                    package { $java_packages: ensure => present }
+                  }
       default  : {
                     fail("${::osfamily}:${::operatingsystem} not supported by this module")
                   }
-            }
+      }
     }
 
   wildfly_netinstall{$version:
@@ -34,19 +39,19 @@ class wildfly::install(
     user           => $user,
     group          => $user,
     proxy_url      => $proxy_url,
-    }
+  }
 
   file { "${install_dir}/wildfly":
-    ensure  => 'link',
-    force   => true,
-    owner   => $user,
-    group   => $user,
-    target  => "${install_dir}/wildfly-${version}",
+    ensure => 'link',
+    force  => true,
+    owner  => $user,
+    group  => $user,
+    target => "${install_dir}/wildfly-${version}",
   }
 
   user { $user:
-    ensure  => present,
-    shell   => $shell,
+    ensure => present,
+    shell  => $shell,
   }
 
 
