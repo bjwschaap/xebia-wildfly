@@ -36,7 +36,7 @@ class wildfly::config::logging(
     'handler.FILE.autoFlush' => { value => 'true'},
     'handler.FILE.enabled' => { value => 'true'},
     'handler.FILE.suffix' => { value => '.yyyy-MM-dd'},
-    'handler.FILE.fileName' => { value => '/opt/wildfly/standalone/log/server.log'},
+    'handler.FILE.fileName' => { value => "${install_dir}/wildfly/${mode}/log/server.log"},
     'formatter.PATTERN' => { value => 'org.jboss.logmanager.formatters.PatternFormatter'},
     'formatter.PATTERN.properties' => { value => 'pattern'},
     'formatter.PATTERN.pattern' => { value => '%d{yyyy-MM-dd HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%E%n'},
