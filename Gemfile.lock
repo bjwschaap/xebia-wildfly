@@ -38,6 +38,7 @@ GEM
     docile (1.1.5)
     excon (0.38.0)
     extlib (0.9.16)
+    facter (2.4.4)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     fission (0.5.0)
@@ -73,11 +74,14 @@ GEM
       retriable (>= 1.4)
       signet (>= 0.5.0)
       uuidtools (>= 2.1.0)
+    hiera (2.0.0)
+      json_pure
     highline (1.6.21)
     inflecto (0.0.2)
     inifile (2.0.2)
     ipaddress (0.8.0)
     json (1.8.1)
+    json_pure (1.8.2)
     jwt (1.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
@@ -97,6 +101,10 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puppet (3.7.0)
+      facter (> 2.0, < 4)
+      hiera (>= 2.0, < 3)
+      json_pure
     puppet-lint (0.3.2)
     puppetlabs_spec_helper (0.6.0)
       mocha
@@ -156,6 +164,7 @@ DEPENDENCIES
   beaker (= 1.13.0)
   beaker-rspec
   pry
+  puppet
   puppet-lint
   puppetlabs_spec_helper
   rake
