@@ -13,12 +13,9 @@ class wildfly::config(
   $deployment_dir            = $wildfly::deployment_dir,
   $admin_user                = $wildfly::admin_user,
   $admin_password            = $wildfly::admin_password,
+  $java_home                 = $wildfly::java_home,
 
 ) {
-
-
-
-
 
   file { "${install_dir}/wildfly/bin/standalone.conf":
     ensure  => present,

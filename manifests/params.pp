@@ -9,7 +9,7 @@ class wildfly::params {
   $user = 'wildfly'
   $shell = '/bin/bash'
   $install_dir = '/opt'
-  $version = '8.1.0.Final'
+  $version = '9.0.0.CR2'
   $mode = 'standalone'
   $profile = 'standalone-full'
   $wait_time = '60'
@@ -17,6 +17,7 @@ class wildfly::params {
   $pid_file = '/var/run/wildfly/wildfly.pid'
   $proxy_url = undef
   $install_java = true
+  $java_home = undef
   $deployment_dir = '/var/tmp'
 
   # admin user
@@ -33,7 +34,11 @@ class wildfly::params {
   #driver config
   $install_postgresql_driver = false
   $postgresql_version        = '9.2-1004'
+  $postgresql_download_url   = undef
   $install_mq_driver         = false
+  $mq_download_url           = undef
+  $install_db2_driver        = false
+  $db2_download_url          = undef
 
   #memory settings
   $xms                      = '256m'

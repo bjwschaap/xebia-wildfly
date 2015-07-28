@@ -1,17 +1,18 @@
 # This installs the MQ drivers
 class wildfly::drivers::mq(
   $install_dir        = $wildfly::install_dir,
-  $user               = $wildfly::user,
+  $download_url       = $wildfly::mq_download_url
 ){
 
-
   # physical driver
-  file{"${install_dir}/wildfly/standalone/deployments/wmq.jmsra.rar":
-    ensure  => present,
-    owner   => $user,
-    group   => $user,
-    mode    => '0644',
-    source  => 'puppet:///modules/wildfly/drivers/undisclosed_evil_empire_stuffels_jms-7.5.0.3.rar',
+  if !$download_url {
+    fail( 'You must specify a download location for the MQ JMS resource adapter RAR file.' )
   }
+
+  wildfly_driver_download{$download_url:
+    proxy_url       => $proxy_url,
+    destinationdir  => "${install_dir}/wildfly/standalone/deployments",
+  }
+
 
 }

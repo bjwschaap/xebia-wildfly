@@ -3,11 +3,15 @@ class wildfly::drivers::postgresql(
   $install_dir        = $wildfly::install_dir,
   $user               = $wildfly::user,
   $postgresql_version = $wildfly::postgresql_version,
+  $download_url       = $wildfly::postgresql_download_url,
   $proxy_url          = $wildfly::proxy_url
 ){
 
   # variables
-  $download_url        = "http://jdbc.postgresql.org/download/postgresql-${postgresql_version}.jdbc41.jar"
+  if !$download_url {
+    $download_url = "https://jdbc.postgresql.org/download/postgresql-${postgresql_version}.jdbc41.jar"
+  }
+
   $destination_dir     = "${install_dir}/wildfly/modules/org/postgresql/main"
 
   File {
@@ -23,7 +27,7 @@ class wildfly::drivers::postgresql(
   # physical driver
   wildfly_driver_download{$download_url:
     proxy_url       => $proxy_url,
-    destinationdir  =>  "${install_dir}/wildfly/modules/org/postgresql/main",
+    destinationdir  => $destination_dir,
   }
 
 
