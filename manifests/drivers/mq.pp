@@ -1,7 +1,8 @@
 # This installs the MQ drivers
 class wildfly::drivers::mq(
   $install_dir        = $wildfly::install_dir,
-  $download_url       = $wildfly::mq_download_url
+  $download_url       = $wildfly::mq_download_url,
+  $proxy_url          = $wildfly::proxy_url
 ){
 
   # physical driver
