@@ -33,8 +33,7 @@ class wildfly::params {
 
   #driver config
   $install_postgresql_driver = false
-  $postgresql_version        = '9.2-1004'
-  $postgresql_download_url   = undef
+  $postgresql_download_url   = 'https://jdbc.postgresql.org/download/postgresql-9.2-1004.jdbc41.jar'
   $install_mq_driver         = false
   $mq_download_url           = undef
   $install_db2_driver        = false

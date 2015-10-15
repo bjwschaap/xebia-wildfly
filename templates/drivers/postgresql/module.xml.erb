@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <module xmlns="urn:jboss:module:1.0" name="org.postgresql">
      <resources>
-         <resource-root path="postgresql-<%= scope.lookupvar('wildfly::postgresql_version')%>.jdbc41.jar"/>
+         <resource-root path="<%= scope.lookupvar('wildfly::postgresql_download_url').split('/').last.split('?').first %>"/>
      </resources>
      <dependencies>
          <module name="javax.api"/>

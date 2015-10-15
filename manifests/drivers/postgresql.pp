@@ -2,17 +2,12 @@
 class wildfly::drivers::postgresql(
   $install_dir        = $wildfly::install_dir,
   $user               = $wildfly::user,
-  $postgresql_version = $wildfly::postgresql_version,
   $download_url       = $wildfly::postgresql_download_url,
   $proxy_url          = $wildfly::proxy_url
 ){
 
   # variables
-  if !$download_url {
-    $download_url = "https://jdbc.postgresql.org/download/postgresql-${postgresql_version}.jdbc41.jar"
-  }
-
-  $destination_dir     = "${install_dir}/wildfly/modules/org/postgresql/main"
+  $destination_dir = "${install_dir}/wildfly/modules/org/postgresql/main"
 
   File {
     ensure => 'directory',
@@ -36,7 +31,5 @@ class wildfly::drivers::postgresql(
     ensure  => present,
     content => template('wildfly/drivers/postgresql/module.xml.erb')
   }
-
-  # addition to the profile file
 
 }

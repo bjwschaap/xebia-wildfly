@@ -22,7 +22,6 @@ class wildfly(
   $management_http_port       = $wildfly::params::management_http_port,
   $management_https_port      = $wildfly::params::management_https_port,
   $install_postgresql_driver  = $wildfly::params::install_postgresql_driver,
-  $postgresql_version         = $wildfly::params::postgresql_version,
   $postgresql_download_url    = $wildfly::params::postgresql_download_url,
   $install_mq_driver          = $wildfly::params::install_mq_driver,
   $mq_download_url            = $wildfly::params::mq_download_url,
