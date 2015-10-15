@@ -104,10 +104,10 @@ Basic client setup
     the management http port (default: 9990)
 ####`management_https_port`
     the management https port setting (default: 9993)
-####`postgresql_version`
-    the version of the postgres drivers that need to be installed (default: '9.2-1004')
 ####`install_postgresql_driver`
     specify whether the postgreql driver should be installed (default: 'false')
+####`postgresql_download_url`
+    the url where the postgresql jdbc driver can be downloaded from (default: 'https://jdbc.postgresql.org/download/postgresql-9.2-1004.jdbc41.jar')
 ####`install_mq_driver`
     not yet fully implemented
 ####`xmx`
