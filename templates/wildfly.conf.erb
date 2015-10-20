@@ -2,8 +2,12 @@
 # not necessarily for JBoss AS itself.
 # default location: /etc/default/wildfly
 
-# Location of JDK	
+# Location of JDK
+<% if @java_home -%>
+JAVA_HOME=<%= @java_home %>
+<% else -%>
 # JAVA_HOME=/usr/lib/jvm/default-java
+<% end -%>
 
 # Location of WildFly
 JBOSS_HOME=<%= @install_dir %>/wildfly
