@@ -118,7 +118,7 @@ Basic client setup
      { 'username'      => 'mquser',
        'password'      => 's3cr3t',
        'transportType' => 'CLIENT',
-       'ccdtURL'       => 'file:///kvk/wildfly/standalone/configuration/MYMQMAS.TAB',
+       'ccdtURL'       => 'file:///opt/wildfly/standalone/configuration/MYMQMAS.TAB',
        'queueManager'  => '*MQMAS'
      }
 ####`xmx`
