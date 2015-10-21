@@ -109,7 +109,18 @@ Basic client setup
 ####`postgresql_download_url`
     the url where the postgresql jdbc driver can be downloaded from (default: 'https://jdbc.postgresql.org/download/postgresql-9.2-1004.jdbc41.jar')
 ####`install_mq_driver`
-    not yet fully implemented
+    downloads and installs the IBM Websphere MQ driver from $mq_download_url
+####`mq_download_url`
+    url to a location where the IBM Websphere MQ wmq.jmsra.rar resource adapter file can be downloaded
+####`mq_config`
+    optional hash with the configuration for the IBM Websphere MQ resource adapter.
+    Example:
+     { 'username'      => 'mquser',
+       'password'      => 's3cr3t',
+       'transportType' => 'CLIENT',
+       'ccdtURL'       => 'file:///kvk/wildfly/standalone/configuration/MYMQMAS.TAB',
+       'queueManager'  => '*MQMAS'
+     }
 ####`xmx`
     specify the xmx startup setting (default: 256m)
 ####`xms`

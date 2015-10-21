@@ -1,7 +1,5 @@
-        <subsystem xmlns="urn:jboss:domain:undertow:1.0">
-            <buffer-caches>
-                <buffer-cache name="default" buffer-size="1024" buffers-per-region="1024" max-regions="10"/>
-            </buffer-caches>
+        <subsystem xmlns="urn:jboss:domain:undertow:2.0">
+            <buffer-cache name="default"/>
             <server name="default-server">
                 <http-listener name="default" socket-binding="http"/>
                 <host name="default-host" alias="localhost">
@@ -15,10 +13,10 @@
                 <websockets/>
             </servlet-container>
             <handlers>
-                <file name="welcome-content" path="${jboss.home.dir}/welcome-content" directory-listing="true"/>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
             <filters>
-                <response-header name="server-header" header-name="Server" header-value="Wildfly 8"/>
-                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow 1"/>
+                <response-header name="server-header" header-name="Server" header-value="WildFly/9"/>
+                <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
             </filters>
         </subsystem>

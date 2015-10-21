@@ -36,11 +36,12 @@ class wildfly::params {
   $postgresql_download_url   = 'https://jdbc.postgresql.org/download/postgresql-9.2-1004.jdbc41.jar'
   $install_mq_driver         = false
   $mq_download_url           = undef
+  $mq_config                 = undef
   $install_db2_driver        = false
   $db2_download_url          = undef
 
   #memory settings
-  $xms                      = '256m'
+  $xms                      = '512m'
   $xmx                      = '512m'
   $maxpermsize              = '128m'
 
