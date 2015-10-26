@@ -4,18 +4,29 @@ class wildfly::drivers::generic(
   $user               = $wildfly::user
 ){
 
-  # variables
+  # Variables
   $destination_dir    = "${install_dir}/wildfly/modules/${name}"
 
+  # Defaults
   File {
     ensure => 'directory',
     owner  => $user,
     mode   => '0644'
   }
 
-  exec { "/bin/mkdir -p ${destination_dir}/main"   : } ->
-  exec { "/bin/chown -R ${user} ${destination_dir}": } ->
+  Exec {
+    path   => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin',
+  }
 
+  # Create directory and set ownership
+  exec { "Create ${destination_dir}/main":
+    command => "mkdir -p ${destination_dir}/main",
+    unless  => "test -d ${destination_dir}/main",
+  } ->
+  exec { "Make ${user} owner of ${destination_dir}":
+    command => "chown -R ${user} ${destination_dir}",
+    unless  => "test $(stat -c '%U' ${destination_dir}) = '${user}' && bash -c 'for X in $(find ${destination_dir} | xargs stat -c '%U'); do test \$X = '${user}'; if [ $? -ne 0 ]; then exit 1; fi; done;'",
+  } ->
 
   # module file
   file{"${destination_dir}/main/module.xml":
