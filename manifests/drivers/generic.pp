@@ -21,7 +21,7 @@ class wildfly::drivers::generic(
   # Create directory and set ownership
   exec { "Create ${destination_dir}/main":
     command => "mkdir -p ${destination_dir}/main",
-    unless  => "ls -d ${destination_dir}/main >/dev/null 2>&1",
+    unless  => "test -d ${destination_dir}/main",
   } ->
   exec { "Make ${user} owner of ${destination_dir}":
     command => "chown -R ${user} ${destination_dir}",
