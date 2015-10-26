@@ -25,7 +25,7 @@ class wildfly::drivers::generic(
   } ->
   exec { "Make ${user} owner of ${destination_dir}":
     command => "chown -R ${user} ${destination_dir}",
-    unless  => "test $(stat -c '%U' ${destination_dir}) = '${user}'",
+    unless  => "test $(stat -c '%U' ${destination_dir}) = '${user}' && bash -c 'for X in $(find ${destination_dir} | xargs stat -c '%U'); do test \$X = '${user}'; if [ $? -ne 0 ]; then exit 1; fi; done;'",
   } ->
 
   # module file
