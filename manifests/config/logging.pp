@@ -39,10 +39,10 @@ class wildfly::config::logging(
     'handler.FILE.fileName' => { value => "${install_dir}/wildfly/${mode}/log/server.log"},
     'formatter.PATTERN' => { value => 'org.jboss.logmanager.formatters.PatternFormatter'},
     'formatter.PATTERN.properties' => { value => 'pattern'},
-    'formatter.PATTERN.pattern' => { value => '%d{yyyy-MM-dd HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%E%n'},
+    'formatter.PATTERN.pattern' => { value => '%d{yyyy-MM-dd HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%e%n'},
     'formatter.COLOR-PATTERN' => { value => 'org.jboss.logmanager.formatters.PatternFormatter'},
     'formatter.COLOR-PATTERN.properties' => { value => 'pattern'},
-    'formatter.COLOR-PATTERN.pattern' => { value => '%K{level}%d{HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%E%n'}
+    'formatter.COLOR-PATTERN.pattern' => { value => '%K{level}%d{HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%e%n'}
   }
 
 
