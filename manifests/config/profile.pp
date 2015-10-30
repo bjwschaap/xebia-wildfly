@@ -7,10 +7,13 @@ class wildfly::config::profile(
   $install_postgresql_driver  = $wildfly::install_postgresql_driver,
   $install_mq_driver          = $wildfly::install_mq_driver,
   $user                       = $wildfly::user,
-  $system_properties          = $wildfly::system_properties
+  $system_properties          = $wildfly::system_properties,
+  $logging_properties         = $wildfly::logging_properties
 ){
 
-# variables
+  # variables
+  $_logging_properties = merge($::wildfly::params::default_logging_properties, $logging_properties)
+
   case $profile {
     'standalone-full': {
       $profile_extensions = [
